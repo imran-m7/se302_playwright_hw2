@@ -22,20 +22,15 @@ test.describe('Sweet Shop Test Suite', () => {
 
     await page.goto('https://sweetshop.netlify.app/sweets');
 
-    
     const productLocator = page.locator('h4:has-text("Sherbert Straws")');
     await productLocator.waitFor({ state: 'visible' });
 
-    
     await sweetsPage.addProductToBasket('Sherbert Straws');
 
-    
     await page.waitForSelector('text=Sherbert Straws', { timeout: 5000 });
 
-    
     await basketPage.navigateToBasket();
 
-    
     await basketPage.verifyProductInBasket('Sherbert Straws');
   });
 
