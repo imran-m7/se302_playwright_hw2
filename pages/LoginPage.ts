@@ -10,7 +10,6 @@ export class LoginPage {
   }
 
   async getErrorMessage() {
-    // Assuming error message appears, perhaps in a div or p
     return this.page.locator('.error, p.error, .alert').textContent();
   }
 }

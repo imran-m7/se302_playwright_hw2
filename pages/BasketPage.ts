@@ -4,7 +4,7 @@ export class BasketPage {
   constructor(private page: Page) {}
 
   async verifyProductInBasket(productName: string) {
-    const productLocator = this.page.locator('.basket-item').filter({ hasText: productName }); // Adjust selector based on site HTML
+    const productLocator = this.page.locator(`text=${productName}`);
     await expect(productLocator).toBeVisible();
   }
 
