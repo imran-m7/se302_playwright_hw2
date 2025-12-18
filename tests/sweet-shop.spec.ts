@@ -62,10 +62,18 @@ test.describe('Sweet Shop Test Suite', () => {
   test('TC_08 - Login with empty credentials', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await page.goto('https://sweetshop.netlify.app/login');
+
     await loginPage.login('', '');
-    
-    const error = await loginPage.getErrorMessage();
-    expect(error).toContain('required');
+
+    const emailValid = await page.locator('input[type="email"]').evaluate(
+      (input: HTMLInputElement) => input.checkValidity()
+    );
+    const passwordValid = await page.locator('input[type="password"]').evaluate(
+      (input: HTMLInputElement) => input.checkValidity()
+    );
+
+    expect(emailValid).toBe(false);
+    expect(passwordValid).toBe(false);
   });
 
   test('TC_09 - Login with invalid credentials', async ({ page }) => {
