@@ -1,0 +1,13 @@
+{
+  "name": "se302-playwright-hw2",
+  "version": "1.0.0",
+  "description": "Playwright tests for Sweet Shop website",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "typescript": "^5.0.0"
+  }
+}
